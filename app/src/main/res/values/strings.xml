@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name" translatable="false">Exstudiantes Soundboard</string>
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">Annuleer</string>
+    <string name="button_import_directory">Importeren</string>
+    <string name="action_new">Importeer geluid</string>
+    <string name="action_remove_all">Verwijder alle geluiden</string>
+    <string name="action_about">Credits</string>
+    <string name="action_exit">Afsluiten</string>
+    <string name="file_directory">Map</string>
+    <string name="file_storage_selection">Opslag selectie</string>
+    <string name="confirm_remove"><![CDATA[Are you sure you want to remove <b>%s</b> ?]]></string>
+    <string name="confirm_remove_all"><![CDATA[Are you sure you want to remove <b>all</b> sounds?]]></string>
+    <string name="import_directory_info">%s geluidjes geregeld.</string>
+
+    <string name="error_entry_exists">Bestaat al joh</string>
+    <string name="error_add">%s gaat hem niet worden</string>
+    <string name="error_no_storage">Sound storage is currently not available. Please ensure that your SD Card is accessible and try again.</string>
+    <string name="error_permission_denied"><![CDATA[<b>%s</b> cannot run when access to the device storage is denied.]]></string>
+    <string name="error_remove">An error occurred while removing sound.</string>
+
+    <string name="about_description_text">Speel geluiden af op je (Android) telefoon.</string>
+    <string name="about_usage_label">Gebruik</string>
+    <string name="about_usage_text">
+        Speel een voorgeprogrammeerd geluid af of voeg zelf een geluid uit je opslag toe aan de lijst. Dit geluid zal gekopieerd worden naar de app en kan vervolgens afgespeeld worden.
+        \n\nJe kan altijd het orginele geluid verwijderen, de kopie blijft speelbaar.</string>
+    <string name="about_copyright_label" translatable="false">Copyright</string>
+    <string name="about_copyright_text" translatable="false">© 2016 Sebastian Wolf</string>
+    <string name="about_added_label" translatable="false">Doorontwikkeling</string>
+    <string name="about_added_text" translatable="false">© 2020 Joost Kranendonk, Alwin Filius en Koos Drost</string>
+    <string name="about_license_label">License</string>
+    <string name="about_license_text" translatable="false"><a href="google.com">GNU General Public License version 3</a></string>
+    <string name="about_source_label">Source code</string>
+    <string name="about_source_text" translatable="false">https://github.com/meonwax/soundboard</string>
+</resources>
