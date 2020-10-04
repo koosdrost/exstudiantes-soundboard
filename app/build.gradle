@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "nl.kodr.soundboard"
+        applicationId "de.meonwax.soundboard"
         minSdkVersion 9
         targetSdkVersion 30
         versionCode 5
