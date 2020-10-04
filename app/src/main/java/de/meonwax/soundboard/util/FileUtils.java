@@ -107,23 +107,25 @@ public class FileUtils {
         } catch (IOException e) {
             Log.e("tag", "Failed to get asset file list.", e);
         }
-        for(String filename : files) {
-            InputStream in = null;
-            OutputStream out = null;
-            try {
-                in = assetManager.open(filename);
-                String outDir = context.getExternalFilesDir(TYPE_SOUND).getAbsolutePath();
-                File outFile = new File(outDir, filename);
+        if (files.length != 0) {
+            for (String filename : files) {
+                InputStream in = null;
+                OutputStream out = null;
+                try {
+                    in = assetManager.open(filename);
+                    String outDir = context.getExternalFilesDir(TYPE_SOUND).getAbsolutePath();
+                    File outFile = new File(outDir, filename);
 
-                out = new FileOutputStream(outFile);
-                copyFile(in, out);
-                in.close();
-                in = null;
-                out.flush();
-                out.close();
-                out = null;
-            } catch(IOException e) {
-                Log.e("tag", "Failed to copy asset file: " + filename, e);
+                    out = new FileOutputStream(outFile);
+                    copyFile(in, out);
+                    in.close();
+                    in = null;
+                    out.flush();
+                    out.close();
+                    out = null;
+                } catch (IOException e) {
+                    Log.e("tag", "Failed to copy asset file: " + filename, e);
+                }
             }
         }
     }

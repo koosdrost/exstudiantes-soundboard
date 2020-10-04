@@ -5,11 +5,11 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "de.meonwax.soundboard"
+        applicationId "nl.kodr.soundboard"
         minSdkVersion 9
         targetSdkVersion 30
-        versionCode 5
-        versionName "1.0.1"
+        versionCode 6
+        versionName "1.0.2"
     }
     signingConfigs {
         release {

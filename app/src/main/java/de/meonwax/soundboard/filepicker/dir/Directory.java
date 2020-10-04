@@ -36,6 +36,9 @@ public class Directory {
     }
 
     public Set<File> getFiles() {
+        if (file.listFiles().length == 0) {
+            return new HashSet<>();
+        }
         return new HashSet<>(Arrays.asList(file.listFiles()));
     }
 
