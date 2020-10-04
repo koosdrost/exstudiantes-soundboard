@@ -1,16 +1,24 @@
 package de.meonwax.soundboard.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.os.Build;
+import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
@@ -91,32 +99,59 @@ public class FileUtils {
         return files;
     }
 
-    public static List<File> getDefaultFiles(Context context) {
-        File dir = context.getExternalFilesDir(TYPE_SOUND);
-
-        List<File> files = new ArrayList<>();
-        File file1 = new File("sample1.ogg");
-        File file2 = new File("sample2.wav");
-        File file3 = new File("sample3.mp3");
-        File file4 = new File("AUD4.mp3");
-        File file5 = new File("AUD5.mp3");
-        files.add(file1);
-        files.add(file2);
-        files.add(file3);
-        files.add(file4);
-        files.add(file5);
-
-        if (dir != null) {
-            Collections.addAll(files, new File(dir.getAbsolutePath()).listFiles(new FileFilter() {
-                @Override
-                public boolean accept(File file) {
-                    return isWhitelisted(file);
-                }
-            }));
-        } else {
-            Toast.makeText(context, context.getString(R.string.error_no_storage), Toast.LENGTH_LONG).show();
+    public static void copyAssets(Context context) {
+        AssetManager assetManager = context.getAssets();
+        String[] files = null;
+        try {
+            files = assetManager.list("");
+        } catch (IOException e) {
+            Log.e("tag", "Failed to get asset file list.", e);
         }
-        return files;
+        for(String filename : files) {
+            InputStream in = null;
+            OutputStream out = null;
+            try {
+                in = assetManager.open(filename);
+                String outDir = context.getExternalFilesDir(TYPE_SOUND).getAbsolutePath();
+                File outFile = new File(outDir, filename);
+
+                out = new FileOutputStream(outFile);
+                copyFile(in, out);
+                in.close();
+                in = null;
+                out.flush();
+                out.close();
+                out = null;
+            } catch(IOException e) {
+                Log.e("tag", "Failed to copy asset file: " + filename, e);
+            }
+        }
+    }
+    private static void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while((read = in.read(buffer)) != -1){
+            out.write(buffer, 0, read);
+        }
+    }
+
+    // InputStream -> File
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private static void copyInputStreamToFile(InputStream inputStream, File file) throws IOException {
+
+        try (FileOutputStream outputStream = new FileOutputStream(file)) {
+            int read;
+            byte[] bytes = new byte[1024];
+
+            while ((read = inputStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+
+            // commons-io
+            //IOUtils.copy(inputStream, outputStream);
+
+        }
+
     }
 
     public static boolean existsInternalFile(Context context, String fileName) {

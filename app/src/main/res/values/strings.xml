@@ -27,9 +27,10 @@
     <string name="about_copyright_label" translatable="false">Copyright</string>
     <string name="about_copyright_text" translatable="false">© 2016 Sebastian Wolf</string>
     <string name="about_added_label" translatable="false">Doorontwikkeling</string>
-    <string name="about_added_text" translatable="false">© 2020 Joost Kranendonk, Alwin Filius en Koos Drost</string>
+    <string name="about_added_text" translatable="false">© 2020 Joost Kranendonk en Koos Drost</string>
     <string name="about_license_label">License</string>
     <string name="about_license_text" translatable="false"><a href="google.com">GNU General Public License version 3</a></string>
     <string name="about_source_label">Source code</string>
-    <string name="about_source_text" translatable="false">https://github.com/meonwax/soundboard</string>
+    <string name="about_source_text" translatable="false">https://github.com/meonwax/soundboard
+        \n\nhttps://github.com/koosdrost/exstudiantes-soundboard</string>
 </resources>

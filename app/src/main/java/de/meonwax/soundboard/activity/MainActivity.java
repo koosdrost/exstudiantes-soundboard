@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Populate sound files
         List<File> soundFiles = new ArrayList<>();
-        soundFiles.addAll(FileUtils.getDefaultFiles(this));
+        FileUtils.copyAssets(this);
+
         soundFiles.addAll(FileUtils.getInternalFiles(this));
         if (!soundFiles.isEmpty()) {
             for (File file : soundFiles) {
