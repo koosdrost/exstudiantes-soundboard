@@ -1,23 +1,18 @@
 package de.meonwax.soundboard.util;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Build;
-import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.nio.channels.FileChannel;
@@ -34,11 +29,8 @@ import de.meonwax.soundboard.R;
 public class FileUtils {
 
     private static final String LOG_TAG = FileUtils.class.getSimpleName();
-
     private final static String[] EXTENSION_WHITELIST = new String[]{"wav", "mp3", "ogg"};
-
     private final static String TYPE_SOUND = "Sound";
-
     private static Set<File> storageDirectories;
 
     /**
@@ -101,14 +93,17 @@ public class FileUtils {
 
     public static void copyAssets(Context context) {
         AssetManager assetManager = context.getAssets();
-        String[] files = null;
+        String[] musicFiles = null;
         try {
-            files = assetManager.list("");
+            musicFiles = assetManager.list("");
         } catch (IOException e) {
             Log.e("tag", "Failed to get asset file list.", e);
         }
-        if (files.length != 0) {
-            for (String filename : files) {
+        if (musicFiles != null && musicFiles.length != 0) {
+            for (String filename : musicFiles) {
+                if (!filename.endsWith(".mp3") || !filename.endsWith(".ogg") || !filename.endsWith(".wav")) {
+                    break;
+                }
                 InputStream in = null;
                 OutputStream out = null;
                 try {
@@ -135,25 +130,6 @@ public class FileUtils {
         while((read = in.read(buffer)) != -1){
             out.write(buffer, 0, read);
         }
-    }
-
-    // InputStream -> File
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    private static void copyInputStreamToFile(InputStream inputStream, File file) throws IOException {
-
-        try (FileOutputStream outputStream = new FileOutputStream(file)) {
-            int read;
-            byte[] bytes = new byte[1024];
-
-            while ((read = inputStream.read(bytes)) != -1) {
-                outputStream.write(bytes, 0, read);
-            }
-
-            // commons-io
-            //IOUtils.copy(inputStream, outputStream);
-
-        }
-
     }
 
     public static boolean existsInternalFile(Context context, String fileName) {

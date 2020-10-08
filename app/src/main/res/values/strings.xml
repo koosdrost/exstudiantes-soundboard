@@ -9,8 +9,8 @@
     <string name="action_exit">Afsluiten</string>
     <string name="file_directory">Map</string>
     <string name="file_storage_selection">Opslag selectie</string>
-    <string name="confirm_remove"><![CDATA[Are you sure you want to remove <b>%s</b> ?]]></string>
-    <string name="confirm_remove_all"><![CDATA[Are you sure you want to remove <b>all</b> sounds?]]></string>
+    <string name="confirm_remove"><![CDATA[Weet je zeker dat je <b>%s</b> wilt verwijderen?]]></string>
+    <string name="confirm_remove_all"><![CDATA[Weet je zeker dat je <b>alles</b> wilt verwijderen?]]></string>
     <string name="import_directory_info">%s geluidjes geregeld.</string>
 
     <string name="error_entry_exists">Bestaat al joh</string>
