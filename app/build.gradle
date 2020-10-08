@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "nl.kodr.soundboard"
         minSdkVersion 9
         targetSdkVersion 30
-        versionCode 6
-        versionName "1.0.2"
+        versionCode 7
+        versionName "1.1.0"
     }
     signingConfigs {
         release {

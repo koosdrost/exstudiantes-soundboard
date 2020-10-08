@@ -1,7 +1,9 @@
 package de.meonwax.soundboard.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Build;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.util.Log;
@@ -22,6 +24,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Set;
 
 import de.meonwax.soundboard.R;
@@ -101,29 +104,29 @@ public class FileUtils {
         }
         if (musicFiles != null && musicFiles.length != 0) {
             for (String filename : musicFiles) {
-                if (!filename.endsWith(".mp3") || !filename.endsWith(".ogg") || !filename.endsWith(".wav")) {
-                    break;
-                }
-                InputStream in = null;
-                OutputStream out = null;
-                try {
-                    in = assetManager.open(filename);
-                    String outDir = context.getExternalFilesDir(TYPE_SOUND).getAbsolutePath();
-                    File outFile = new File(outDir, filename);
+                if (filename.endsWith(".mp3") || filename.endsWith(".ogg") || filename.endsWith(".wav")) {
+                    InputStream in = null;
+                    OutputStream out = null;
+                    try {
+                        in = assetManager.open(filename);
+                        String outDir = context.getExternalFilesDir(TYPE_SOUND).getAbsolutePath();
+                        File outFile = new File(outDir, filename);
 
-                    out = new FileOutputStream(outFile);
-                    copyFile(in, out);
-                    in.close();
-                    in = null;
-                    out.flush();
-                    out.close();
-                    out = null;
-                } catch (IOException e) {
-                    Log.e("tag", "Failed to copy asset file: " + filename, e);
+                        out = new FileOutputStream(outFile);
+                        copyFile(in, out);
+                        in.close();
+                        in = null;
+                        out.flush();
+                        out.close();
+                        out = null;
+                    } catch (IOException e) {
+                        Log.e("tag", "Failed to copy asset file: " + filename, e);
+                    }
                 }
             }
         }
     }
+
     private static void copyFile(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
         int read;
@@ -168,6 +171,7 @@ public class FileUtils {
      * Inspired by CyanogenMod File Manager:
      * https://github.com/CyanogenMod/android_packages_apps_CMFileManager
      */
+    @TargetApi(Build.VERSION_CODES.R)
     public static Set<File> getStorageDirectories(Context context) {
         if (storageDirectories == null) {
             try {
@@ -178,7 +182,7 @@ public class FileUtils {
                 if (storageVolumes != null && storageVolumes.length > 0) {
                     storageDirectories = new HashSet<>();
                     for (StorageVolume volume : storageVolumes) {
-                        storageDirectories.add(new File(volume.getPath()));
+                        storageDirectories.add(new File(Objects.requireNonNull(volume.getDirectory()).getPath()));
                     }
                 }
 
