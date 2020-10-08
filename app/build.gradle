@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "nl.kodr.soundboard"
-        minSdkVersion 9
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 7
         versionName "1.1.0"

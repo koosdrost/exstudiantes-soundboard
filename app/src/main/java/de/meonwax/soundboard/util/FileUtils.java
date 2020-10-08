@@ -1,6 +1,5 @@
 package de.meonwax.soundboard.util;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Build;
@@ -171,7 +170,6 @@ public class FileUtils {
      * Inspired by CyanogenMod File Manager:
      * https://github.com/CyanogenMod/android_packages_apps_CMFileManager
      */
-    @TargetApi(Build.VERSION_CODES.R)
     public static Set<File> getStorageDirectories(Context context) {
         if (storageDirectories == null) {
             try {
@@ -182,12 +180,21 @@ public class FileUtils {
                 if (storageVolumes != null && storageVolumes.length > 0) {
                     storageDirectories = new HashSet<>();
                     for (StorageVolume volume : storageVolumes) {
-                        storageDirectories.add(new File(Objects.requireNonNull(volume.getDirectory()).getPath()));
+
+                        String path = "/storage/emulated/0";
+                        if (android.os.Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+                            // deze bij android 9 en lager
+                            storageDirectories.add(new File(Objects.requireNonNull(volume.getPath())));
+                        } else {
+                            // deze bij android 10+
+                            storageDirectories.add(new File(Objects.requireNonNull(path)));
+                        }
+
                     }
                 }
 
             } catch (Exception e) {
-                Log.e(LOG_TAG, e.getMessage());
+                Log.e(LOG_TAG, Objects.requireNonNull(e.getMessage()));
             }
         }
         return storageDirectories;
