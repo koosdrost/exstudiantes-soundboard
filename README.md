@@ -45,6 +45,10 @@ Then run:
 
 After a successful build, the (signed) APKs will be located in `app/build/outputs/apk`.
 
+## Credits
+
+Credits and thanks to Meonwax for providing the base (https://github.com/meonwax/soundboard.git)
+
 ## Resources
 
 [Launcher icon](https://www.iconfinder.com/icons/916730/music_sound_voice_volume_icon) by Mohamed Mbarki licensed under [Creative Commons (Attribution 3.0 Unported)](http://creativecommons.org/licenses/by/3.0/).
