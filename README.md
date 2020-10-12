@@ -2,9 +2,13 @@
 
 Play and upload short sound samples on your Android device.
 
+Will be used during sports matches to imitate singing/yells since this isn't allowed anymore.
+
 ## Usage
 
 Select a sound file from your storage directory and add it to the sounds list. It will be copied to the private application folder and can be played on touch.
+
+There are also several preloaded samples provided.
 
 You can delete the original file at any time. The sound sample will still be available in the application until you decide to delete it.
 
