@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.filepicker.entry;
+package nl.kodr.soundboard.filepicker.entry;
 
 public class FileEntry extends DirectoryEntry {
 

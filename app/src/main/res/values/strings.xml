@@ -10,7 +10,7 @@
     <string name="file_directory">Map</string>
     <string name="file_storage_selection">Opslag selectie</string>
     <string name="confirm_remove"><![CDATA[Weet je zeker dat je <b>%s</b> wilt verwijderen?]]></string>
-    <string name="confirm_remove_all"><![CDATA[Weet je zeker dat je <b>alles</b> wilt verwijderen?]]></string>
+    <string name="confirm_remove_all"><![CDATA[Weet je zeker dat je <b>de hele zooi</b> wilt verwijderen?]]></string>
     <string name="import_directory_info">%s geluidjes geregeld.</string>
 
     <string name="error_entry_exists">Bestaat al joh</string>
@@ -28,6 +28,8 @@
     <string name="about_copyright_text" translatable="false">© 2016 Sebastian Wolf</string>
     <string name="about_added_label" translatable="false">Doorontwikkeling</string>
     <string name="about_added_text" translatable="false">© 2020 Joost Kranendonk en Koos Drost</string>
+    <string name="about_clo_label" translatable="false">Juridische afdeling</string>
+    <string name="about_clo_text" translatable="false">© 2020 Laurent Jensma, CLO</string>
     <string name="about_license_label">License</string>
     <string name="about_license_text" translatable="false"><a href="google.com">GNU General Public License version 3</a></string>
     <string name="about_source_label">Source code</string>

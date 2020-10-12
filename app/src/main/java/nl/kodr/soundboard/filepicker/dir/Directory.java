@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.filepicker.dir;
+package nl.kodr.soundboard.filepicker.dir;
 
 import java.io.File;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.sound;
+package nl.kodr.soundboard.sound;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,8 +14,8 @@ import android.widget.ImageButton;
 
 import java.util.List;
 
-import de.meonwax.soundboard.R;
-import de.meonwax.soundboard.activity.MainActivity;
+import nl.kodr.soundboard.R;
+import nl.kodr.soundboard.activity.MainActivity;
 
 public class SoundAdapter extends BaseAdapter {
 

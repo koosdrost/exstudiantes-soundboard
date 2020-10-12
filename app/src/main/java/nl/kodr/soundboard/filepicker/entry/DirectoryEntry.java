@@ -1,10 +1,10 @@
-package de.meonwax.soundboard.filepicker.entry;
+package nl.kodr.soundboard.filepicker.entry;
 
 import android.support.annotation.NonNull;
 
 import java.util.Locale;
 
-import de.meonwax.soundboard.filepicker.dir.Directory;
+import nl.kodr.soundboard.filepicker.dir.Directory;
 
 public class DirectoryEntry implements IEntry {
 

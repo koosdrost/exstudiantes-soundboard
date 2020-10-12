@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.meonwax.soundboard">
+    package="nl.kodr.soundboard">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
@@ -11,7 +11,7 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.MainActivity">
+        <activity android:name="nl.kodr.soundboard.activity.MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
         </activity>
 
         <activity
-            android:name=".activity.AboutActivity"
+            android:name="nl.kodr.soundboard.activity.AboutActivity"
             android:label="@string/action_about" />
 
     </application>

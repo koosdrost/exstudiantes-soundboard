@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.filepicker;
+package nl.kodr.soundboard.filepicker;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import de.meonwax.soundboard.R;
-import de.meonwax.soundboard.filepicker.entry.IEntry;
-import de.meonwax.soundboard.util.FileUtils;
+import nl.kodr.soundboard.R;
+import nl.kodr.soundboard.filepicker.entry.IEntry;
+import nl.kodr.soundboard.util.FileUtils;
 
 class EntryAdapter extends ArrayAdapter<IEntry> {
 

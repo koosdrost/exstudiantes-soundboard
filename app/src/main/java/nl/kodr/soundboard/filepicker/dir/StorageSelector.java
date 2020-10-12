@@ -1,11 +1,11 @@
-package de.meonwax.soundboard.filepicker.dir;
+package nl.kodr.soundboard.filepicker.dir;
 
 import android.content.Context;
 
 import java.io.File;
 import java.util.Set;
 
-import de.meonwax.soundboard.R;
+import nl.kodr.soundboard.R;
 
 public class StorageSelector extends Directory {
 

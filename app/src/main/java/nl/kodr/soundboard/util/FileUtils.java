@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.util;
+package nl.kodr.soundboard.util;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -26,12 +26,13 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
-import de.meonwax.soundboard.R;
+import nl.kodr.soundboard.R;
 
 public class FileUtils {
 
     private static final String LOG_TAG = FileUtils.class.getSimpleName();
     private final static String[] EXTENSION_WHITELIST = new String[]{"wav", "mp3", "ogg"};
+    private final static List<String> BLACKLIST_SAMPLES = new ArrayList<>();
     private final static String TYPE_SOUND = "Sound";
     private static Set<File> storageDirectories;
 
@@ -53,6 +54,10 @@ public class FileUtils {
 
     public static boolean isWhitelisted(File file) {
         return EXTENSION_WHITELIST != null && Arrays.asList(EXTENSION_WHITELIST).contains(getExtension(file).toLowerCase(Locale.US));
+    }
+
+    public static boolean isBlackListed(File file) {
+        return BLACKLIST_SAMPLES.contains(file.getAbsolutePath());
     }
 
     private static String getExtension(File file) {
@@ -81,16 +86,21 @@ public class FileUtils {
         List<File> files = new ArrayList<>();
         File dir = context.getExternalFilesDir(TYPE_SOUND);
         if (dir != null) {
+            // add all that are not blacklisted
             Collections.addAll(files, new File(dir.getAbsolutePath()).listFiles(new FileFilter() {
                 @Override
                 public boolean accept(File file) {
-                    return isWhitelisted(file);
+                    return isWhitelisted(file) & !isBlackListed(file);
                 }
             }));
         } else {
             Toast.makeText(context, context.getString(R.string.error_no_storage), Toast.LENGTH_LONG).show();
         }
         return files;
+    }
+
+    public static void blacklistSample(String path) {
+        BLACKLIST_SAMPLES.add(path);
     }
 
     public static void copyAssets(Context context) {
@@ -189,10 +199,8 @@ public class FileUtils {
                             // deze bij android 10+
                             storageDirectories.add(new File(Objects.requireNonNull(path)));
                         }
-
                     }
                 }
-
             } catch (Exception e) {
                 Log.e(LOG_TAG, Objects.requireNonNull(e.getMessage()));
             }

@@ -1,6 +1,6 @@
-package de.meonwax.soundboard.filepicker.entry;
+package nl.kodr.soundboard.filepicker.entry;
 
-import de.meonwax.soundboard.filepicker.dir.Directory;
+import nl.kodr.soundboard.filepicker.dir.Directory;
 
 public interface IEntry extends Comparable<IEntry> {
 

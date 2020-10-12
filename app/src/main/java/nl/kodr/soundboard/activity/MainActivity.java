@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.activity;
+package nl.kodr.soundboard.activity;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -25,13 +25,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.meonwax.soundboard.R;
-import de.meonwax.soundboard.filepicker.FilePickerDialogFragment;
-import de.meonwax.soundboard.filepicker.dir.Directory;
-import de.meonwax.soundboard.sound.Sound;
-import de.meonwax.soundboard.sound.SoundAdapter;
-import de.meonwax.soundboard.sound.SoundPoolBuilder;
-import de.meonwax.soundboard.util.FileUtils;
+import nl.kodr.soundboard.R;
+import nl.kodr.soundboard.filepicker.FilePickerDialogFragment;
+import nl.kodr.soundboard.filepicker.dir.Directory;
+import nl.kodr.soundboard.sound.Sound;
+import nl.kodr.soundboard.sound.SoundAdapter;
+import nl.kodr.soundboard.sound.SoundPoolBuilder;
+import nl.kodr.soundboard.util.FileUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -187,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addSound(File soundFile) {
-
         // Load the sound file
         int soundId = soundPool.load(soundFile.getAbsolutePath(), 1);
 
@@ -216,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeSound(int position) {
-
         // Remove from adapter
         Sound sound = sounds.remove(position);
         soundAdapter.notifyDataSetChanged();
@@ -224,8 +222,10 @@ public class MainActivity extends AppCompatActivity {
         // Unload from sound pool
         soundPool.unload(sound.getId());
 
-        // Delete from filesystem
         String internalPath = FileUtils.getInternalPath(this, new File(sound.getName()));
+        FileUtils.blacklistSample(internalPath);
+
+        // Delete from filesystem
         if (internalPath == null || !new File(internalPath).delete()) {
             Toast.makeText(this, getString(R.string.error_remove), Toast.LENGTH_LONG).show();
         }

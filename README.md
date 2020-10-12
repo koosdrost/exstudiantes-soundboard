@@ -1,8 +1,6 @@
 # Soundboard
 
-[![Build Status](https://travis-ci.org/meonwax/soundboard.svg?branch=master)](https://travis-ci.org/meonwax/soundboard)
-
-Play short sound samples on your Android device.
+Play and upload short sound samples on your Android device.
 
 ## Usage
 
@@ -12,13 +10,7 @@ You can delete the original file at any time. The sound sample will still be ava
 
 ## Download
 
-There are several ways of getting a compiled binary version of Soundboard:
-
-* [![F-Droid](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Get_it_on_F-Droid.svg/160px-Get_it_on_F-Droid.svg.png)](https://f-droid.org/repository/browse/?fdid=de.meonwax.soundboard "Soundboard on F-Droid")
-
-* Download a bleeding edge snapshot build from my [private repository](https://meonwax.de/soundboard/snapshots). As these snapshots are always compiled from the repository HEAD, they could be unstable or filled with bugs. The snapshots packages are signed with a *debug key* which can change occasionally. Be aware of that.
-
-* Grab an APK from [releases on GitHub](https://github.com/meonwax/soundboard/releases). These are compiled by me from the same sources as the F-Droid releases and should be stable.
+Download from the Google Play store: https://play.google.com/store/apps/details?id=nl.kodr.soundboard 
 
 ## Building
 
@@ -35,7 +27,7 @@ You will at least need to install the following SDK packages:
 
 Clone the repository:
 
-    git clone https://github.com/meonwax/soundboard.git
+    git@github.com:koosdrost/exstudiantes-soundboard.git
 
 Switch to application directory and make the gradle wrapper executable:
 

@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.sound;
+package nl.kodr.soundboard.sound;
 
 import android.annotation.TargetApi;
 import android.media.AudioAttributes;

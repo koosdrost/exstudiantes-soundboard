@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#50FFFFFF"
     android:orientation="vertical"
-    tools:context=".activity.MainActivity">
+    tools:context="nl.kodr.soundboard.activity.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

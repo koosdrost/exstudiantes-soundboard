@@ -1,4 +1,4 @@
-package de.meonwax.soundboard.filepicker;
+package nl.kodr.soundboard.filepicker;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -19,14 +19,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import de.meonwax.soundboard.R;
-import de.meonwax.soundboard.activity.MainActivity;
-import de.meonwax.soundboard.filepicker.dir.Directory;
-import de.meonwax.soundboard.filepicker.dir.StorageSelector;
-import de.meonwax.soundboard.filepicker.entry.DirectoryEntry;
-import de.meonwax.soundboard.filepicker.entry.FileEntry;
-import de.meonwax.soundboard.filepicker.entry.IEntry;
-import de.meonwax.soundboard.util.FileUtils;
+import nl.kodr.soundboard.R;
+import nl.kodr.soundboard.activity.MainActivity;
+import nl.kodr.soundboard.filepicker.dir.Directory;
+import nl.kodr.soundboard.filepicker.dir.StorageSelector;
+import nl.kodr.soundboard.filepicker.entry.DirectoryEntry;
+import nl.kodr.soundboard.filepicker.entry.FileEntry;
+import nl.kodr.soundboard.filepicker.entry.IEntry;
+import nl.kodr.soundboard.util.FileUtils;
 
 public class FilePickerDialogFragment extends DialogFragment {
 
