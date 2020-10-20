@@ -9,7 +9,7 @@
     <string name="action_exit">Afsluiten</string>
     <string name="file_directory">Map</string>
     <string name="file_storage_selection">Opslag selectie</string>
-    <string name="confirm_remove"><![CDATA[Weet je zeker dat je <b>%s</b> wilt verwijderen?]]></string>
+    <string name="confirm_remove"><![CDATA[Weet je zeker dat je <b>%s</b> wil verwijderen?]]></string>
     <string name="confirm_remove_all"><![CDATA[Weet je zeker dat je <b>de hele zooi</b> wilt verwijderen?]]></string>
     <string name="import_directory_info">%s geluidjes geregeld.</string>
 

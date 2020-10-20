@@ -65,7 +65,7 @@ public class SoundAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(context)
-                        .setMessage(Html.fromHtml(context.getString(R.string.confirm_remove, sound.getName())))
+                        .setMessage(Html.fromHtml(context.getString(R.string.confirm_remove, sound.getScreenName())))
                         .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
