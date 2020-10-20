@@ -31,10 +31,11 @@ import nl.kodr.soundboard.R;
 public class FileUtils {
 
     private static final String LOG_TAG = FileUtils.class.getSimpleName();
-    private final static String[] EXTENSION_WHITELIST = new String[]{"wav", "mp3", "ogg"};
     private final static List<String> BLACKLIST_SAMPLES = new ArrayList<>();
     private final static String TYPE_SOUND = "Sound";
     private static Set<File> storageDirectories;
+
+    public final static String[] EXTENSION_WHITELIST = new String[]{"wav", "mp3", "ogg"};
 
     /**
      * Converts the bytes value into a human readable string

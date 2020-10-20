@@ -52,7 +52,7 @@ public class SoundAdapter extends BaseAdapter {
         final Sound sound = getItem(position);
 
         Button playButton = (Button) convertView.findViewById(R.id.sound_play);
-        playButton.setText(sound.getName());
+        playButton.setText(sound.getScreenName());
         playButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
